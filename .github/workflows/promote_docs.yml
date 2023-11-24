@@ -9,19 +9,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Create and Switch to Public Branch
+  steps:
+    - uses: actions/checkout@v3
+    
+    - name: Create and Switch to Public Branch
+    run: |
+      git checkout -b public
+
+    - name: Copy Docs to Public Branch
       run: |
-        git checkout -b public
+        rsync -av --exclude='.git*' docs/ .
 
-      - name: Copy Docs to Public Branch
-        run: |
-          rsync -av --exclude='.git*' docs/ .
-
-      - name: Commit and Push Changes to Public Branch
-        run: |
-          git add docs/*
-          git commit -m "Promote docs to public branch"
-          git push origin public
+    - name: Commit and Push Changes to Public Branch
+      run: |
+        git add docs/*
+        git commit -m "Promote docs to public branch"
+        git push origin public
