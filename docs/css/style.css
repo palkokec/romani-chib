@@ -24,6 +24,23 @@ h6 {
   width: 64px;
 
 }
+
+.listimg {
+  width:32px;
+  height:32px;
+}
+
+.tab-btn:focus ~ .tab-content {
+  display: block;
+}
+.tab-content:not(:target) {
+  display: none;
+}
+
+.tab-content:target {
+  display: block;
+}
+
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {
   #main {
