@@ -1,2 +1,0 @@
-# romani-chib
-Romsky slovnik
