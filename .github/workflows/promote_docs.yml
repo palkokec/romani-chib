@@ -20,6 +20,6 @@ jobs:
           cd romani-chib
           rm -rf ./*
           rsync -avh --progress --delete ../docs .
-          git add *
+          git add -A .
           git commit -m "Promote docs to public branch"
           git push origin public
