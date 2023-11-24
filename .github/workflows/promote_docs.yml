@@ -12,11 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Promote to Public Branch
+      - name: Promote docs to Public Branch
         run: |
-          git checkout -b public
           git config --global user.email "palkokec@gmail.com"
           git config --global user.name "Pali Promoter"
-          git add docs/*
+          git clone -b public git@github.com:palkokec/romani-chib.git
+          cd romani-chib
+          rm -rf ./*
+          rsync -avh --progress --delete ../docs .
+          git add *
           git commit -m "Promote docs to public branch"
           git push origin public
