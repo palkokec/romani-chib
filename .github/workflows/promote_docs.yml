@@ -12,12 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Create and Switch to Public Branch
+      - name: Promote to Public Branch
         run: |
           git checkout -b public
-
-      - name: Commit and Push Changes to Public Branch
-        run: |
           git config --global user.email "palkokec@gmail.com"
           git config --global user.name "Pali Promoter"
           git add docs/*
