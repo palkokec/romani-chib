@@ -16,10 +16,6 @@ jobs:
         run: |
           git checkout -b public
 
-      - name: Copy Docs to Public Branch
-        run: |
-          rsync -av --exclude='.git*' docs/ .
-
       - name: Commit and Push Changes to Public Branch
         run: |
           git config --global user.email "palkokec@gmail.com"
