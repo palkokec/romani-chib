@@ -22,6 +22,8 @@ jobs:
 
       - name: Commit and Push Changes to Public Branch
         run: |
+          git config --global user.email "palkokec@gmail.com"
+          git config --global user.name "Pali Promoter"
           git add docs/*
           git commit -m "Promote docs to public branch"
           git push origin public
